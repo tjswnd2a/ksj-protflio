@@ -1,12 +1,12 @@
-/* body {
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   background-color: rgb(27, 26, 26);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 
 code {
@@ -27,9 +27,19 @@ button {
   display: block;
   background-color: rgb(27, 26, 26);
   color: white;
+  transition: background-color .5s;
+  &:hover {
+    background-color: rgb(55, 54, 54);
+  }
 }
 
 a {
   text-decoration: none;
   color: black
-} */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
