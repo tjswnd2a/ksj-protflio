@@ -21,10 +21,14 @@ export default function LoginPage() {
           <div className="find-wrap">
             <ul>
               <li>
-                <a href="javascirpt:void(0)">아이디 찾기</a>
+                <Link to={'/id_find'}>
+                  <a href="javascirpt:void(0)">아이디 찾기</a>
+                </Link>
               </li>
               <li>
-                <a href="javascirpt:void(0)">비밀번호 찾기</a>
+                <Link to={'/pw_find'}>
+                  <a href="javascirpt:void(0)">비밀번호 찾기</a>
+                </Link>
               </li>
               <li>
                 <Link to={'/signup'}>

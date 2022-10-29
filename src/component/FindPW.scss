@@ -1,0 +1,47 @@
+.find-pw {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  .inner {
+    width: 600px;
+    height: 380px;
+    background-color: #fff;
+    border-radius: 20px;
+    .logo {
+      padding: 20px 0 20px 0;
+      text-align: center;
+      font-size: 50px;
+      font-weight: 900;
+    }
+    .title {
+      padding: 8px 0 5px 45px;
+    }
+    .container {
+      width: 85%;
+      height: 35px;
+      border: 1px solid #000;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content:space-between;
+      input {
+        width: 80%;
+        height: 20px;
+        margin-left: 10px;
+        border: none;
+      }
+      .material-symbols-outlined{
+        padding-right: 10px
+      }
+    }
+
+    button {
+      width: 80%;
+      height: 35px;
+      margin: 0 auto;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  }
+}

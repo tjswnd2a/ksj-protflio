@@ -10,6 +10,7 @@ export default function SignUp() {
   const [password, setPassWord] = useState<string>(""); // password
   const [pw_check, setPwCheck] = useState<string>(""); // password check
   const [phone, setPhone] = useState<string>(""); // phone number
+  const [name, setName] = useState<string>(""); // phone number
 
   const [ID_State, setID_State] = useState<Array<string>>([]);
   const [state, setState] = useState<any>([]);
@@ -150,6 +151,12 @@ export default function SignUp() {
         <div className="notice phone">
           <h1>11자리가 아니거나, 문자가 입력되어 있습니다.</h1>
           <h2>확인입니다</h2>
+        </div>
+
+        <h4 className='title'>닉네임</h4>
+        <div className="container">
+          <input type="text"
+            onChange={(event) => setName(event.target.value)} />
         </div>
 
         <button className="button-classic">가입하기</button>
