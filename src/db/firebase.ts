@@ -1,7 +1,9 @@
 //firebase.js
+
 import firebase from "firebase/compat/app"
 import 'firebase/compat/firestore';
-
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDb8Yva1u6Mpu-3PZieMnoJnBQJubsgfe0",
   authDomain: "testing-d22ba.firebaseapp.com",
@@ -14,9 +16,9 @@ const firebaseConfig = {
 
 // firebaseConfig 정보로 firebase 시작
 firebase.initializeApp(firebaseConfig);
-
 // firebase의 firestore 인스턴스를 변수에 저장
 const firestore = firebase.firestore();
-
+const firebaseApp = initializeApp(firebaseConfig)
+const firebaseAuth = getAuth(firebaseApp);
 // 필요한 곳에서 사용할 수 있도록 내보내기
-export { firestore };
+export { firestore, firebaseAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword };

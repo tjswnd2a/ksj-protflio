@@ -6,6 +6,7 @@ import LoginPage from "./component/LoginPage";
 import SignUp from "./component/SignUp";
 import FindID from "./component/FindID";
 import FindPW from "./component/FindPW";
+import Home from "./component/Home";
 import { firestore } from "./db/firebase";
 import { collection, getDocs, addDoc, updateDoc, doc, setDoc } from "firebase/firestore"; // crud
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/id_find" element={<FindID />}></Route>
           <Route path="/pw_find" element={<FindPW />}></Route>
+          <Route path="/home" element={<Home />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
