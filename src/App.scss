@@ -25,11 +25,15 @@ button {
 }
 .button-classic {
   display: block;
+  border: 1px solid #000;
   background-color: rgb(27, 26, 26);
   color: white;
-  transition: background-color .5s;
+  transition: background-color .3s;
+  font-weight: 900;
   &:hover {
-    background-color: rgb(55, 54, 54);
+    background-color: white;
+    color: rgb(27, 26, 26);
+
   }
 }
 

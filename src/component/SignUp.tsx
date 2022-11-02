@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { firestore, firebaseAuth, createUserWithEmailAndPassword } from "../db/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import SignUpAni from "../animation/SignUpAni";
+
+
 export default function SignUp() {
   const [email, setEmail] = useState<string>(""); // id
   const [password, setPassWord] = useState<string>(""); // password
@@ -74,6 +76,7 @@ export default function SignUp() {
         SignUpAni("pw", 1);
       }
     }
+
     // 비밀번호 재확인
     if (pw_confirm.length > 0) {
       if (password === pw_confirm) { // 비밀번호가 같은지 확인

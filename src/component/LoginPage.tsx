@@ -52,7 +52,7 @@ export default function LoginPage() {
           </div>
           <div className="password">
             <span className="material-symbols-outlined">lock</span>
-            <input type="text" placeholder='비밀번호' onChange={(event) => setPassoword(event.target.value)} />
+            <input type="password" placeholder='비밀번호' onChange={(event) => setPassoword(event.target.value)} />
           </div>
           {/* <Link to={'/home'} > */}
           <button className="button-classic" onClick={login}>로그인</button>
