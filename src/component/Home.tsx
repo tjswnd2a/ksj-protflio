@@ -44,7 +44,9 @@ export default function Home() {
           {user.email}님 환영합니다.
         </div>
         <ul>
-          <li>내정보</li>
+          <Link to={'/myinfo'}>
+            <li>내정보</li>
+          </Link>
           <li>내가 쓴 글</li>
           <li className="logout" onClick={logOut}>LogOut</li>
 
