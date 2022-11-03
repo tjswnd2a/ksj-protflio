@@ -49,7 +49,10 @@ export default function MyPage() {
         </div>
         <div className="revise-box">
           <ul>
-            <li className="pw-revise">비밀번호 수정</li>
+            <Link to={"/PassWordChange"} state={{ email: email }}>
+              <li className="pw-revise">비밀번호 재설정</li>
+            </Link>
+
             <li className="user-delete" onClick={onClick}>
               탈퇴하기
             </li>

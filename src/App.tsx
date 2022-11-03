@@ -8,6 +8,8 @@ import FindID from "./component/FindID";
 import FindPW from "./component/FindPW";
 import Home from "./component/Home";
 import MyPage from "./component/mypage/MyPage";
+import PassWordChange from "./component/mypage/PassWordChange";
+import MyWrite from "./component/mypage/MyWrite";
 import { firestore } from "./db/firebase";
 import {
   collection,
@@ -29,6 +31,8 @@ function App() {
           <Route path="/pw_find" element={<FindPW />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/mypage" element={<MyPage />}></Route>
+          <Route path="/PassWordChange" element={<PassWordChange />}></Route>
+          <Route path="/my-write" element={<MyWrite />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

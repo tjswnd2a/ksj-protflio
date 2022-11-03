@@ -1,7 +1,20 @@
 import './FindPW.scss';
 import { Link } from "react-router-dom";
-
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { useState } from "react";
 export default function FindPW() {
+  const [typingEmail, setTypingEmail] = useState<string>("");
+  const changePasswordUsingEmail = async () => {
+    try {
+      const auth = getAuth();
+      await sendPasswordResetEmail(auth, typingEmail);
+      alert("메일 확인 부탁드립니다.");
+    } catch (err: any) {
+      if (err.code === "auth/invalid-email") {
+        alert("등록되어 있지 않은 이메일입니다.");
+      }
+    }
+  }
   return (
     <section className="find-pw">
       <div className="inner">
@@ -11,25 +24,14 @@ export default function FindPW() {
           </Link>
         </div>
 
-        <h4 className='title'>닉네임</h4>
+
+        <h4 className='title'>이메일</h4>
         <div className="container">
-          <input type="text" />
-        </div>
-        <h4 className='title'>아이디</h4>
-        <div className="container">
-          <input type="text" />
+          <input type="text" onChange={(event) => setTypingEmail(event.target.value)} />
           <span className="material-symbols-outlined">person</span>
         </div>
-        <h4 className='title'>전화번호</h4>
-        <div className="container">
-          <input type="text"
-            maxLength={11}
-            placeholder='-를 제외한 전화번호 11자리를 입력해주세요'
-          />
-          <span className="material-symbols-outlined">call</span>
-        </div>
 
-        <button className="button-classic">아이디 찾기</button>
+        <button className="button-classic" onClick={changePasswordUsingEmail} >비밀번호 찾기</button>
 
       </div>
     </section>
