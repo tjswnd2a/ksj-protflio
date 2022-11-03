@@ -1,10 +1,9 @@
 import "./Home.scss";
 import { useEffect, useState } from "react";
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../db/firebase";
 import HomeAni from "../animation/HomeAni";
 import { Link } from "react-router-dom";
-import Table from "react-bootstrap/Table";
 
 export default function Home() {
   const [user, setUser] = useState<any>({});
@@ -15,6 +14,7 @@ export default function Home() {
       setUser(currentUser);
     });
   }, []);
+  console.log(user);
   useEffect(() => {
     if (menu_active) {
       HomeAni(menu_active);
@@ -25,31 +25,29 @@ export default function Home() {
 
   const onClick = () => {
     setMenuActive((prop) => !prop);
-  }
+  };
 
   const logOut = async () => {
     await signOut(firebaseAuth);
     window.location.href = "/";
-
-  }
+  };
   return (
     <div className="home">
       <div className="my-info">
         <div className="logo">
-          <Link to={'/home'} >
+          <Link to={"/home"}>
             <h4>SJ-Note</h4>
           </Link>
         </div>
-        <div className="title">
-          {user.email}님 환영합니다.
-        </div>
+        <div className="title">{user.email}님 환영합니다.</div>
         <ul>
-          <Link to={'/myinfo'}>
+          <Link to={"/mypage"} state={{ email: user.email }}>
             <li>내정보</li>
           </Link>
           <li>내가 쓴 글</li>
-          <li className="logout" onClick={logOut}>LogOut</li>
-
+          <li className="logout" onClick={logOut}>
+            LogOut
+          </li>
         </ul>
       </div>
       <div className="inner">
@@ -70,7 +68,6 @@ export default function Home() {
         </div>
         <button className="button-classic">글쓰기</button>
       </div>
-
-    </div >
-  )
+    </div>
+  );
 }

@@ -1,0 +1,50 @@
+.my-page {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  .inner {
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 20px;
+    .profile-box,
+    .revise-box {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 50px;
+      background-color: orange;
+      ul {
+        li {
+          padding: 20px;
+        }
+      }
+    }
+  }
+
+  .delete-page {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    .inner {
+      opacity: 0;
+      height: 300px;
+      .close {
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        .material-symbols-outlined {
+          font-size: 40px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

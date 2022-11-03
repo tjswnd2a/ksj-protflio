@@ -1,10 +1,13 @@
-import './SignUp.scss';
+import "./SignUp.scss";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
-import { firestore, firebaseAuth, createUserWithEmailAndPassword } from "../db/firebase";
+import { useState, useEffect } from "react";
+import {
+  firestore,
+  firebaseAuth,
+  createUserWithEmailAndPassword,
+} from "../db/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import SignUpAni from "../animation/SignUpAni";
-
 
 export default function SignUp() {
   const [email, setEmail] = useState<string>(""); // id
@@ -21,31 +24,33 @@ export default function SignUp() {
   const register = async () => {
     if (check) {
       try {
-        const createUser = await createUserWithEmailAndPassword(firebaseAuth, email, password)
-          .then(() => {
-            alert("회원가입에 성공하셨습니다");
-            window.location.href = "/";
-          })
+        const createUser = await createUserWithEmailAndPassword(
+          firebaseAuth,
+          email,
+          password
+        ).then(() => {
+          alert("회원가입에 성공하셨습니다");
+          window.location.href = "/"; // navigate로 바꾸기
+        });
       } catch (err: any) {
         switch (err.code) {
-          case 'auth/invalid-email': // 잘못된 형태의 이메일 주소인 경우
+          case "auth/invalid-email": // 잘못된 형태의 이메일 주소인 경우
             SignUpAni("email", 3);
             break;
-          case 'auth/email-already-in-use': // 이미 존재하는 이메일 주소인 경우
+          case "auth/email-already-in-use": // 이미 존재하는 이메일 주소인 경우
             SignUpAni("email", 5);
             break;
         }
       }
     }
-  }
+  };
   const ID_Compare = (): boolean => {
     let result: boolean = false;
     return result;
-  }
+  };
   const SignUpSeccessful = () => {
     alert("회원가입에 성공하셨습니다");
-  }
-
+  };
 
   // useEffect(() => {
   //   if (loadding) {
@@ -58,10 +63,9 @@ export default function SignUp() {
   // }, [state])
   useEffect(() => {
     if (loadding) {
-
       console.log(ID_State);
     }
-  }, [ID_State])
+  }, [ID_State]);
 
   // 회원가입 경고 알림
   useEffect(() => {
@@ -70,7 +74,8 @@ export default function SignUp() {
 
     // 비밀번호
     if (password.length > 0) {
-      if (password.length < 5 || password.length > 20) { // 비밀번호 길이 확인
+      if (password.length < 5 || password.length > 20) {
+        // 비밀번호 길이 확인
         SignUpAni("pw", 2);
       } else {
         SignUpAni("pw", 1);
@@ -79,7 +84,8 @@ export default function SignUp() {
 
     // 비밀번호 재확인
     if (pw_confirm.length > 0) {
-      if (password === pw_confirm) { // 비밀번호가 같은지 확인
+      if (password === pw_confirm) {
+        // 비밀번호가 같은지 확인
         SignUpAni("pw-check", 1);
         check = true;
       } else {
@@ -87,21 +93,22 @@ export default function SignUp() {
         check = false;
       }
     }
-
-  }, [email, password, pw_confirm])
-
+  }, [email, password, pw_confirm]);
 
   return (
     <div className="signup-page">
       <div className="inner">
         <div className="logo">
-          <Link to={'/'} >
+          <Link to={"/"}>
             <h4>SJ-Note</h4>
           </Link>
         </div>
-        <h4 className='title'>이메일</h4>
+        <h4 className="title">이메일</h4>
         <div className="container">
-          <input type="text" onChange={(event) => setEmail(event.target.value)} />
+          <input
+            type="text"
+            onChange={(event) => setEmail(event.target.value)}
+          />
           <span className="material-symbols-outlined">person</span>
         </div>
         <div className="notice email">
@@ -110,9 +117,12 @@ export default function SignUp() {
           <h3>이미 사용중인 이메일 입니다.</h3>
         </div>
 
-        <h4 className='title'>비밀번호</h4>
+        <h4 className="title">비밀번호</h4>
         <div className="container">
-          <input type="password" onChange={(event) => setPassWord(event.target.value)} />
+          <input
+            type="password"
+            onChange={(event) => setPassWord(event.target.value)}
+          />
           <span className="material-symbols-outlined">lock</span>
         </div>
         <div className="notice pw">
@@ -120,9 +130,12 @@ export default function SignUp() {
           <h2>사용가능</h2>
         </div>
 
-        <h4 className='title'>비밀번호 재확인</h4>
+        <h4 className="title">비밀번호 재확인</h4>
         <div className="container">
-          <input type="password" onChange={(event) => setConfirmPW(event.target.value)} />
+          <input
+            type="password"
+            onChange={(event) => setConfirmPW(event.target.value)}
+          />
           <span className="material-symbols-outlined">lock</span>
         </div>
         <div className="notice pw-check">
@@ -130,7 +143,9 @@ export default function SignUp() {
           <h2>비밀번호가 일치합니다.</h2>
         </div>
 
-        <button className="button-classic" onClick={register}>가입하기</button>
+        <button className="button-classic" onClick={register}>
+          가입하기
+        </button>
       </div>
     </div>
   );
