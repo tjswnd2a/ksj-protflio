@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { getAuth, deleteUser, updatePassword, signOut } from "firebase/auth";
 import MyPageAni from "../../animation/MyPageAni";
-import { firebaseAuth, signInWithEmailAndPassword } from "../../db/firebase";
+import {
+  firebaseAuth,
+  firestore,
+  signInWithEmailAndPassword,
+} from "../../db/firebase";
 
 export default function PassWordChange() {
   const user_email = useLocation();
@@ -14,13 +18,12 @@ export default function PassWordChange() {
   const [DeletePage, setDeletePage] = useState<boolean>(false);
   const navigate = useNavigate();
   let check: boolean = false;
-
   const PassWordCompare = () => {
-    if (new_PW.length != 0 || retry_PW.length != 0) {
+    if (new_PW.length !== 0 || retry_PW.length !== 0) {
       if (new_PW === retry_PW) {
         check = true;
       } else {
-        alert("일치하지 않습니다")
+        alert("일치하지 않습니다");
       }
     }
   };
@@ -51,12 +54,12 @@ export default function PassWordChange() {
         alert("비밀번호가 일치하지 않습니다.");
       }
     }
-  }
+  };
   useEffect(() => {
     if (DeletePage) {
       navigate(-1);
     }
-  }, [DeletePage])
+  }, [DeletePage]);
 
   return (
     <div className="password-change">
@@ -91,12 +94,12 @@ export default function PassWordChange() {
               />
               <span className="material-symbols-outlined">lock</span>
             </div>
-            <button className="button-classic" onClick={pwChange} >
+            <button className="button-classic" onClick={pwChange}>
               비밀번호 재설정
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

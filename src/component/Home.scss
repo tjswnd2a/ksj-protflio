@@ -60,53 +60,52 @@
       }
     }
 
-    .table-box {
-      width: 90%;
-      height: 300px;
-      // border: 1px solid rgb(27, 26, 26);
-      background-color: rgba(51, 15, 15, 0.039);
-      margin: 0 auto;
-      margin-top: 100px;
+    // .table-box {
+    //   width: 90%;
+    //   height: 300px;
+    //   // border: 1px solid rgb(27, 26, 26);
+    //   background-color: rgba(51, 15, 15, 0.039);
+    //   margin: 0 auto;
+    //   margin-top: 100px;
 
-      table {
-        width: 100%;
+    //   table {
+    //     width: 100%;
 
-        thead {
-          height: 30px;
-          font-weight: 900;
-          background-color: #fff;
-          .t-number {
-            width: 10%;
-          }
+    //     thead {
+    //       height: 30px;
+    //       font-weight: 900;
+    //       background-color: #fff;
+    //       .t-number {
+    //         width: 10%;
+    //       }
 
-          .t-title {
-            width: 30%;
-          }
+    //       .t-title {
+    //         width: 30%;
+    //       }
 
-          .t-writer {
-            width: 30%;
-          }
+    //       .t-writer {
+    //         width: 30%;
+    //       }
 
-          .t-date-create {
-            width: 20%;
-          }
-          th {
-            align-items: center;
-            border: 1px solid rgba(0, 0, 0, 0.256);
-            vertical-align: middle;
-            box-sizing: border-box;
-          }
-        }
-      }
-    
-    }
+    //       .t-date-create {
+    //         width: 20%;
+    //       }
+    //       th {
+    //         align-items: center;
+    //         border: 1px solid rgba(0, 0, 0, 0.256);
+    //         vertical-align: middle;
+    //         box-sizing: border-box;
+    //       }
+    //     }
+    //   }
+
+    // }
     button {
-      width : 500px;
+      width: 500px;
       height: 30px;
       border-radius: 20px;
       margin: 0 auto;
       margin-top: 60px;
     }
-    
   }
 }
