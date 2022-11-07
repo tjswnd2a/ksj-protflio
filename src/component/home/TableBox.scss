@@ -17,22 +17,47 @@
         width: 10%;
       }
 
-      .t-title {
-        width: 30%;
-      }
-
+      .t-title,
       .t-writer {
         width: 30%;
       }
 
-      .t-date-create {
+      .t-create {
         width: 20%;
       }
       th {
-        align-items: center;
         border: 1px solid rgba(0, 0, 0, 0.256);
         vertical-align: middle;
         box-sizing: border-box;
+      }
+    }
+    tbody {
+      tr {
+        height: 30px;
+        text-align: center;
+        background-color: #fff;
+        cursor: pointer;
+        &:hover {
+          background-color: rgba(51, 15, 15, 0.039);
+        }
+        .data-number {
+          width: 10%;
+          vertical-align: middle;
+        }
+
+        .data-title,
+        .data-writer {
+          width: 30%;
+        }
+
+        .date-create {
+          width: 20%;
+        }
+        td {
+          border: 1px solid rgba(0, 0, 0, 0.256);
+          vertical-align: middle;
+          box-sizing: border-box;
+        }
       }
     }
   }

@@ -30,8 +30,9 @@ export default function WritePage() {
     const result: string = `${year}-${todayMonth}-${todayDate} ${hours}:${minutes}:${sec}`;
     return result;
   };
+
   const onClick = async () => {
-    const userCollectionRef = collection(firestore, location.state.uid);
+    const userCollectionRef = collection(firestore, location.state.email);
     try {
       const res = await addDoc(userCollectionRef, {
         title: post_title,
@@ -45,13 +46,14 @@ export default function WritePage() {
       console.log(err);
     }
   };
+
   useEffect(() => {
     console.log(firestore);
 
     setUid(location.state.uid);
     setEmail(location.state.email);
   }, []);
-  console.log(post_title);
+
   return (
     <div className="write-page">
       <div className="inner">

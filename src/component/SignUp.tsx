@@ -1,12 +1,13 @@
 import "./SignUp.scss";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   firestore,
   firebaseAuth,
   createUserWithEmailAndPassword,
 } from "../db/firebase";
-import { getDocs, collection } from "firebase/firestore";
+import { addDoc, getDocs, collection } from "firebase/firestore";
 import SignUpAni from "../animation/SignUpAni";
 
 export default function SignUp() {
@@ -17,6 +18,7 @@ export default function SignUp() {
   const [ID_State, setID_State] = useState<Array<string>>([]);
   const [state, setState] = useState<any>([]);
   const [loadding, setLadding] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const regex: RegExp = /[^0-9]/g; //숫자만 찾게 하는 정규표현식
   let check: boolean = false;
@@ -24,13 +26,12 @@ export default function SignUp() {
   const register = async () => {
     if (check) {
       try {
-        const createUser = await createUserWithEmailAndPassword(
+        await createUserWithEmailAndPassword(
           firebaseAuth,
           email,
           password
         ).then(() => {
-          alert("회원가입에 성공하셨습니다");
-          window.location.href = "/"; // navigate로 바꾸기
+          SetUser();
         });
       } catch (err: any) {
         switch (err.code) {
@@ -44,23 +45,20 @@ export default function SignUp() {
       }
     }
   };
-  const ID_Compare = (): boolean => {
-    let result: boolean = false;
-    return result;
-  };
-  const SignUpSeccessful = () => {
-    alert("회원가입에 성공하셨습니다");
+
+  const SetUser = async () => {
+    const userCollectionRef = collection(firestore, "user");
+    try {
+      await addDoc(userCollectionRef, {
+        id: email,
+      });
+      navigate(-1);
+      alert("회원가입에 성공하셨습니다");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  // useEffect(() => {
-  //   if (loadding) {
-  //     const temp: Array<string> = [];
-  //     state.forEach((doc: any) => {
-  //       temp.push(doc.id);
-  //     });
-  //     setID_State(temp);
-  //   }
-  // }, [state])
   useEffect(() => {
     if (loadding) {
       console.log(ID_State);
@@ -69,9 +67,6 @@ export default function SignUp() {
 
   // 회원가입 경고 알림
   useEffect(() => {
-    // 이메일
-    // email
-
     // 비밀번호
     if (password.length > 0) {
       if (password.length < 5 || password.length > 20) {
