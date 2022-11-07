@@ -18,11 +18,16 @@ export default function Home() {
   const getUsers = async () => {
     const userCollectionRef = collection(firestore, "user");
     const userList: Array<string> = [];
-    const data = await getDocs(userCollectionRef);
-    data.forEach((doc: any) => {
-      userList.push(doc.data().id);
-    });
-    setUserID(userList);
+    try {
+      const data = await getDocs(userCollectionRef);
+      data.forEach((doc: any) => {
+        userList.push(doc.data().id);
+      });
+      setUserID(userList);
+      setDataLoad(true);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -34,7 +39,6 @@ export default function Home() {
 
   useEffect(() => {
     console.log(userID);
-    setDataLoad(true);
   }, [userID]);
 
   useEffect(() => {
@@ -48,10 +52,14 @@ export default function Home() {
   const onClick = () => {
     setMenuActive((prop) => !prop);
   };
-  const pageChange = () => {
-    setWriteView((prop) => !prop);
+  const Total_View = () => {
+    setWriteView(false);
     onClick();
   };
+  const My_View = () => {
+    setWriteView(true);
+    onClick();
+  }
 
   const logOut = async () => {
     await signOut(firebaseAuth);
@@ -72,8 +80,8 @@ export default function Home() {
             <li>내정보</li>
           </Link>
           {/* <Link to={"/my-write"}> */}
-          <li onClick={pageChange}>전체 게시물</li>
-          <li onClick={pageChange}>내가 쓴 글</li>
+          <li onClick={Total_View}>전체 게시물</li>
+          <li onClick={My_View}>내가 쓴 글</li>
           {/* </Link> */}
           <li className="logout" onClick={logOut}>
             LogOut
@@ -84,7 +92,8 @@ export default function Home() {
         <div className="menu" onClick={onClick}>
           <span className="material-symbols-outlined">menu</span>
         </div>
-        {data_load ? <TableBox userList={userID} /> : null}
+        {data_load ? <TableBox userList={userID} />
+          : null}
         {writeView ? null : (
           <Link
             to={"/writing-page"}
