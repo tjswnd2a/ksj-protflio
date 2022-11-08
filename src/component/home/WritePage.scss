@@ -1,0 +1,39 @@
+.write-page {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  .inner {
+    width: 80%;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 20px;
+    .title {
+      h4 {
+        padding-left: 5%;
+        padding-top: 30px;
+      }
+      input {
+        margin-top: 10px;
+        margin-left: 5%;
+      }
+    }
+    .write-box {
+      width: 100%;
+      h4 {
+        padding: 20px 0 20px 5%;
+      }
+      textarea {
+        display: block;
+        width: 90%;
+        height: 500px;
+        resize: none;
+        margin: 0 auto;
+      }
+    }
+    button {
+      margin: 0 auto;
+      margin-top: 10px;
+    }
+  }
+}

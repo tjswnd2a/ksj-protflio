@@ -59,12 +59,6 @@ export default function SignUp() {
     }
   };
 
-  useEffect(() => {
-    if (loadding) {
-      console.log(ID_State);
-    }
-  }, [ID_State]);
-
   // 회원가입 경고 알림
   useEffect(() => {
     // 비밀번호

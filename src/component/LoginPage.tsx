@@ -20,7 +20,6 @@ export default function LoginPage() {
         typingEmail,
         typingPassword
       ); // .then(() => {
-      console.log(curUserInfo.user);
       window.location.href = "/home";
     } catch (err: any) {
       switch (err.code) {
@@ -35,9 +34,6 @@ export default function LoginPage() {
     }
   };
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
   return (
     <section className="login-page">
       <div className="inner">

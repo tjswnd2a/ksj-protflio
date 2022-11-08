@@ -2,7 +2,12 @@ import "./MyPage.scss";
 import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { firebaseAuth, signInWithEmailAndPassword } from "../../db/firebase";
+import {
+  firebaseAuth,
+  firestore,
+  signInWithEmailAndPassword,
+} from "../../db/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
 import MyPageAni from "../../animation/MyPageAni";
 
@@ -16,6 +21,22 @@ export default function MyPage() {
   const onClick = () => {
     setDeletePage((prop) => !prop);
   };
+  const UserDataDelete = async () => {
+    const userCollectionRef = firestore.collection(email);
+    const data = await getDocs(userCollectionRef);
+    data.forEach((item) => {
+      userCollectionRef.doc(item.id).delete();
+    });
+  };
+  const UserListDelete = async () => {
+    const userCollectionRef = firestore.collection("user");
+    const data = await getDocs(userCollectionRef);
+    data.forEach((item) => {
+      if (item.data().id === email) {
+        userCollectionRef.doc(item.id).delete();
+      }
+    });
+  };
   const user_delete = async () => {
     try {
       const auth = getAuth();
@@ -26,6 +47,8 @@ export default function MyPage() {
         password
       );
       await deleteUser(user);
+      UserDataDelete();
+      UserListDelete();
       alert("회원이 탈퇴 되었습니다");
       navigate("/", { replace: true });
     } catch (err: any) {

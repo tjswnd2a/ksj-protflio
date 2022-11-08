@@ -11,7 +11,7 @@ import MyTableBox from "./home/MyTableBox";
 export default function Home() {
   const [user, setUser] = useState<any>({});
   const [menu_active, setMenuActive] = useState<boolean>(false);
-  const [writeView, setWriteView] = useState<boolean>(false);
+  const [viewToggle, setViewToggle] = useState<boolean>(false);
   const [userID, setUserID] = useState<Array<any>>([]);
   const [data_load, setDataLoad] = useState<boolean>(false);
 
@@ -53,13 +53,13 @@ export default function Home() {
     setMenuActive((prop) => !prop);
   };
   const Total_View = () => {
-    setWriteView(false);
+    setViewToggle(false);
     onClick();
   };
   const My_View = () => {
-    setWriteView(true);
+    setViewToggle(true);
     onClick();
-  }
+  };
 
   const logOut = async () => {
     await signOut(firebaseAuth);
@@ -92,9 +92,21 @@ export default function Home() {
         <div className="menu" onClick={onClick}>
           <span className="material-symbols-outlined">menu</span>
         </div>
-        {data_load ? <TableBox userList={userID} />
-          : null}
-        {writeView ? null : (
+        {viewToggle === true && data_load === true ? (
+          <TableBox
+            userList={userID}
+            my_email={user.email}
+            toggle={viewToggle}
+          />
+        ) : null}
+        {viewToggle === false && data_load === true ? (
+          <TableBox
+            userList={userID}
+            my_email={user.email}
+            toggle={viewToggle}
+          />
+        ) : null}
+        {viewToggle ? null : (
           <Link
             to={"/writing-page"}
             state={{ uid: user.uid, email: user.email }}
