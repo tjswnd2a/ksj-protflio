@@ -10,7 +10,6 @@ import Home from "./component/Home";
 import MyPage from "./component/mypage/MyPage";
 import PassWordChange from "./component/mypage/PassWordChange";
 import WritePage from "./component/home/WritePage";
-import MyWrite from "./component/mypage/MyWrite";
 import { firestore } from "./db/firebase";
 import {
   collection,

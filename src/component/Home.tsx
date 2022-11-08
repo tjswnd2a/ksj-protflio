@@ -6,7 +6,6 @@ import { collection, getDocs } from "firebase/firestore";
 import HomeAni from "../animation/HomeAni";
 import { Link } from "react-router-dom";
 import TableBox from "./home/TableBox";
-import MyTableBox from "./home/MyTableBox";
 
 export default function Home() {
   const [user, setUser] = useState<any>({});
@@ -76,7 +75,7 @@ export default function Home() {
         </div>
         <div className="title">{user.email}님 환영합니다.</div>
         <ul>
-          <Link to={"/mypage"} state={{ email: user.email }}>
+          <Link to={"/mypage"} state={{ email: user.email, uid: user.uid }}>
             <li>내정보</li>
           </Link>
           {/* <Link to={"/my-write"}> */}

@@ -6,7 +6,7 @@
   justify-content: center;
   .inner {
     width: 600px;
-    height: 600px;
+    height: 700px;
     background-color: #fff;
     border-radius: 20px;
     .profile-box,
@@ -14,12 +14,30 @@
       width: 80%;
       margin: 0 auto;
       margin-top: 50px;
-      background-color: orange;
       ul {
         li {
           padding: 20px;
         }
       }
+    }
+    .profile-box,
+    .revise-box {
+      .title {
+        background-color: #11264f;
+        color: #fff;
+        border-radius: 30px 30px 0 0;
+      }
+      li {
+        border: 1px solid #11264f;
+      }
+      .uid,
+      .user-delete {
+        border-top: none;
+        border-radius: 0 0 30px 30px;
+      }
+    }
+    .profile-box {
+      margin-top: 100px;
     }
   }
 

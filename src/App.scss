@@ -1,21 +1,17 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    // background-image: url("../public/images/20200703155006481_oen.jfif");
-    background-image: url("../public/images/city-g0ae46a2c6_1920.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  // background-color: rgb(27, 26, 26);
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  // background-image: url("../public/images/20200703155006481_oen.jfif");
+  background-image: url("../public/images/city-g0ae46a2c6_1920.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -33,22 +29,21 @@ button {
   border: 1px solid #000;
   background-color: rgb(27, 26, 26);
   color: white;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
   font-weight: 900;
   &:hover {
     background-color: white;
     color: rgb(27, 26, 26);
-
   }
 }
 
 a {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }

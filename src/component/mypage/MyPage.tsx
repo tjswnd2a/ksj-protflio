@@ -14,6 +14,7 @@ import MyPageAni from "../../animation/MyPageAni";
 export default function MyPage() {
   const location = useLocation();
   const [email, setEmail] = useState<string>(location.state.email);
+  const [uid, setUid] = useState<string>(location.state.uid);
   const [password, setPassWord] = useState<string>("");
   const [DeletePage, setDeletePage] = useState<boolean>(false);
 
@@ -65,13 +66,14 @@ export default function MyPage() {
       <div className="inner">
         <div className="profile-box">
           <ul>
-            <li className="title">내프로필</li>
-            <li className="email">이메일</li>
-            <li className="email">UID</li>
+            <li className="title">내 프로필</li>
+            <li className="email">이메일 - [{email}]</li>
+            <li className="uid">UID - [{uid}] </li>
           </ul>
         </div>
         <div className="revise-box">
           <ul>
+            <li className="title">정보수정</li>
             <Link to={"/PassWordChange"} state={{ email: email }}>
               <li className="pw-revise">비밀번호 재설정</li>
             </Link>
