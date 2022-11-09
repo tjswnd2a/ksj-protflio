@@ -10,6 +10,7 @@ import {
 import { collection, getDocs } from "firebase/firestore";
 import { getAuth, deleteUser } from "firebase/auth";
 import MyPageAni from "../../animation/MyPageAni";
+import { Placeholder } from "react-bootstrap";
 
 export default function MyPage() {
   const location = useLocation();
@@ -61,9 +62,17 @@ export default function MyPage() {
   useEffect(() => {
     MyPageAni(DeletePage);
   }, [DeletePage]);
+
+  const BackBtn = () => {
+    navigate(-1);
+  }
   return (
     <div className="my-page">
       <div className="inner">
+        <h1>회원정보</h1>
+        <div className="backpage" onClick={BackBtn}>
+          <span className="material-symbols-outlined">keyboard_return</span>
+        </div>
         <div className="profile-box">
           <ul>
             <li className="title">내 프로필</li>
@@ -101,6 +110,7 @@ export default function MyPage() {
                 <input
                   type="password"
                   onChange={(event) => setPassWord(event.target.value)}
+                  placeholder="비밀번호를 입력해주세요"
                 />
                 <span className="material-symbols-outlined">lock</span>
               </div>

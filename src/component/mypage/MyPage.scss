@@ -9,6 +9,21 @@
     height: 700px;
     background-color: #fff;
     border-radius: 20px;
+    h1 {
+      padding-top: 70px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: 900;
+    }
+    .backpage {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      .material-symbols-outlined {
+        font-size: 30px;
+        cursor: pointer;
+      }
+    }
     .profile-box,
     .revise-box {
       width: 80%;
@@ -35,9 +50,13 @@
         border-top: none;
         border-radius: 0 0 30px 30px;
       }
+      .user-delete,
+      .pw-revise{
+        cursor: pointer;
+      }
     }
     .profile-box {
-      margin-top: 100px;
+      margin-top: 50px;
     }
   }
 
@@ -61,6 +80,33 @@
         .material-symbols-outlined {
           font-size: 40px;
           font-weight: 700;
+        }
+      }
+      .container{
+        width: 80%;
+        margin: 0 auto;
+        padding-top: 75px;
+        .title {
+          font-size: 20px;
+        }
+        .password-box {
+          display: flex;
+          border: 1px solid #11264f;
+          width: 250px;
+          align-items: center;
+          margin-top: 20px;
+          input {
+            width: 250px;
+            height: 30px;
+            border: none;
+          }
+        }
+        button {
+          margin: 0 auto;
+          margin-top: 30px;
+          width: 300px;
+          height: 30px;
+          border-radius: 30px;
         }
       }
     }

@@ -14,10 +14,6 @@ export default function WritePage() {
 
   const navigate = useNavigate();
 
-  const handleResizeHeight = useCallback(() => {
-    // textRef.current.style.height = "300px";
-    // textRef.current.style.height = textRef.current.scrollHeight + "px";
-  }, []);
   const CurrentTime = (): string => {
     const now = new Date();
     const year: number = now.getFullYear(); // 연도
@@ -30,9 +26,21 @@ export default function WritePage() {
     const result: string = `${year}-${todayMonth}-${todayDate} ${hours}:${minutes}:${sec}`;
     return result;
   };
+  const closeClick = () => {
+    navigate(-1);
+  }
 
   const onClick = async () => {
     const userCollectionRef = collection(firestore, location.state.email);
+    if (post_title === "") {
+      alert("제목이 입력되어있지 않습니다.");
+      return;
+    }
+
+    if (post_content === "") {
+      alert("게시글 내용이 입력되어있지 않습니다.");
+      return;
+    }
     try {
       const res = await addDoc(userCollectionRef, {
         title: post_title,
@@ -55,6 +63,9 @@ export default function WritePage() {
   return (
     <div className="write-page">
       <div className="inner">
+        <div className="close" onClick={closeClick}>
+          <span className="material-symbols-outlined">close</span>
+        </div>
         <div className="title">
           <h4>제목</h4>
           <div className="container">
