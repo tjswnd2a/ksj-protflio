@@ -78,10 +78,8 @@ export default function Home() {
           <Link to={"/mypage"} state={{ email: user.email, uid: user.uid }}>
             <li>내정보</li>
           </Link>
-          {/* <Link to={"/my-write"}> */}
           <li onClick={Total_View}>전체 게시물</li>
           <li onClick={My_View}>내가 쓴 글</li>
-          {/* </Link> */}
           <li className="logout" onClick={logOut}>
             LogOut
           </li>

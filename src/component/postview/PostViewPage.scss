@@ -1,0 +1,51 @@
+.post-page-view {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  .inner {
+    width: 80%;
+    height: 700px;
+    background-color: #fff;
+    border-radius: 20px;
+
+    .post-container {
+      width: 80%;
+      margin: 0 auto;
+
+      .title-box {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 80px;
+        border-top: 1px solid #ccc;
+        padding: 15px;
+        background-color: #fcfcfc;
+      }
+
+      .user-box {
+        padding: 15px;
+        border-top: 1px solid #ccc;
+
+      }
+
+      .content {
+        padding: 15px;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+
+        textarea {
+          display: block;
+          width: 100%;
+          height: 450px;
+          resize: none;
+          margin: 0 auto;
+          border: none;
+          &:focus{
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

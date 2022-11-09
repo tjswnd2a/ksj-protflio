@@ -2,6 +2,7 @@ import "./TableBox.scss";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore, firebaseAuth } from "../../db/firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function TableBox({
   userList,
@@ -18,11 +19,18 @@ export default function TableBox({
   const [counter, setCounter] = useState<number>(0);
   const [toggleView, setToggle] = useState<boolean>(toggle);
   const regex: RegExp = /[^0-9]/g; //숫자만 찾게 하는 정규표현식
+  const navigate = useNavigate();
+
+  const PageMove = () => {
+    navigate("/post-view", {
+
+    });
+  }
 
   const Table_Data = (title: string, user: string, time: string) => {
     post_counter += 1;
     return (
-      <tr>
+      <tr onClick={PageMove}>
         <td className="data-number">{post_counter}</td>
         <td className="data-title">{title}</td>
         <td className="data-writer">{user}</td>
@@ -63,7 +71,7 @@ export default function TableBox({
   useEffect(() => {
     setload(true);
   }, [postContent]);
-  useEffect(() => {}, [counter]);
+  useEffect(() => { }, [counter]);
   const PostTimeSort = (user_data: Array<any>) => {
     let item1: number = 0;
     let item2: number = 0;
@@ -96,8 +104,8 @@ export default function TableBox({
         <tbody>
           {load
             ? postContent.map((item) =>
-                Table_Data(item.title, item.user, item.time)
-              )
+              Table_Data(item.title, item.user, item.time)
+            )
             : null}
         </tbody>
       </table>
