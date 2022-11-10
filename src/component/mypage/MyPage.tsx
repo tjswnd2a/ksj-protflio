@@ -70,8 +70,8 @@ export default function MyPage() {
     <div className="my-page">
       <div className="inner">
         <h1>회원정보</h1>
-        <div className="backpage" onClick={BackBtn}>
-          <span className="material-symbols-outlined">keyboard_return</span>
+        <div className="close" onClick={BackBtn}>
+          <span className="material-symbols-outlined">close</span>
         </div>
         <div className="profile-box">
           <ul>

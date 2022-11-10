@@ -1,66 +1,72 @@
 .table-box {
   width: 90%;
   height: 500px;
-  // border: 1px solid rgb(27, 26, 26);
   background-color: rgba(51, 15, 15, 0.039);
   margin: 0 auto;
   margin-top: 60px;
 
-  table {
-    width: 100%;
+  .table-header {
+    display: flex;
 
-    thead {
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.256);
+      box-sizing: border-box;
       height: 30px;
-      font-weight: 900;
       background-color: #fff;
-      .t-number {
+    }
+
+    .t-number {
+      width: 10%;
+    }
+
+    .t-title,
+    .t-writer,
+    .t-create  {
+      width: 30%;
+
+    }
+  }
+
+  .table-data {
+    display: block;
+    height: 480px;
+    overflow: overlay;
+    .data-box {
+      display: flex;
+      cursor: pointer;
+
+      &:hover {
+        li {
+          background-color: rgba(51, 15, 15, 0.039);
+
+        }
+      }
+
+      li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.256);
+        box-sizing: border-box;
+
+      }
+
+      .data-number {
         width: 10%;
       }
 
-      .t-title,
-      .t-writer {
+      .data-title,
+      .data-writer,
+      .data-create {
         width: 30%;
       }
-
-      .t-create {
-        width: 20%;
-      }
-      th {
-        border: 1px solid rgba(0, 0, 0, 0.256);
-        vertical-align: middle;
-        box-sizing: border-box;
-      }
     }
-    tbody {
-      width: 100%;
-      tr {
-        height: 30px;
-        text-align: center;
-        background-color: #fff;
-        cursor: pointer;
-        &:hover {
-          background-color: rgba(51, 15, 15, 0.039);
-        }
-        .data-number {
-          width: 10%;
-          vertical-align: middle;
-        }
 
-        .data-title,
-        .data-writer {
-          width: 30%;
-        }
-
-        .date-create {
-          width: 20%;
-        }
-        td {
-          border: 1px solid rgba(0, 0, 0, 0.256);
-          // border-bottom: none;
-          vertical-align: middle;
-          box-sizing: border-box;
-        }
-      }
-    }
   }
+
 }

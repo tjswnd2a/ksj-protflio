@@ -17,16 +17,49 @@
       .title-box {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         margin-top: 80px;
         border-top: 1px solid #ccc;
         padding: 15px;
         background-color: #fcfcfc;
+        .title {
+          font-weight: 700;
+        }
+        input {
+          font-weight: 700;
+        }
       }
 
       .user-box {
+        position: relative;
+        display: flex;
         padding: 15px;
         border-top: 1px solid #ccc;
+        justify-content: space-between;
+        align-items: center;
+        button {
+          padding:5px;
+          border-radius: 10px;
+        }
+        .edit,
+        .edit-success {
+          border: none;
+          background-color: blue;
+          color: #fff;
+        }
+        .delete {
+          border: none;
+          background-color: red;
+          color: #fff;
+          margin-left: 10px;
 
+        }
+        .edit-success{
+          position: absolute;
+          width: 80px;
+          right: 60px;
+          visibility: hidden;
+        }
       }
 
       .content {

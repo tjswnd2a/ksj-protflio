@@ -89,20 +89,30 @@ export default function Home() {
         <div className="menu" onClick={onClick}>
           <span className="material-symbols-outlined">menu</span>
         </div>
-        {viewToggle === true && data_load === true ? (
-          <TableBox
-            userList={userID}
-            my_email={user.email}
-            toggle={viewToggle}
-          />
-        ) : null}
-        {viewToggle === false && data_load === true ? (
-          <TableBox
-            userList={userID}
-            my_email={user.email}
-            toggle={viewToggle}
-          />
-        ) : null}
+        <div className="table-box">
+          <ul className="table-header">
+            <li className="t-number">번호</li>
+            <li className="t-title">제목</li>
+            <li className="t-writer">작성자</li>
+            <li className="t-create">작성일</li>
+          </ul>
+          {viewToggle === true && data_load === true ? (
+            <TableBox
+              userList={userID}
+              my_email={user.email}
+              toggle={viewToggle}
+            />
+          ) : null}
+
+          {viewToggle === false && data_load === true ? (
+            <TableBox
+              userList={userID}
+              my_email={user.email}
+              toggle={viewToggle}
+            />
+          ) : null}
+        </div>
+
         {viewToggle ? null : (
           <Link
             to={"/writing-page"}

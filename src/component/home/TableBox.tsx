@@ -19,46 +19,49 @@ export default function TableBox({
   const [counter, setCounter] = useState<number>(0);
   const [toggleView, setToggle] = useState<boolean>(toggle);
   const regex: RegExp = /[^0-9]/g; //숫자만 찾게 하는 정규표현식
-  const navigate = useNavigate();
 
-  const PageMove = () => {
-    navigate("/post-view", {
-
-    });
-  }
-
-  const Table_Data = (title: string, user: string, time: string) => {
+  const Table_Data = (title: string, user: string, time: string, content: string, key: string) => {
     post_counter += 1;
     return (
-      <tr onClick={PageMove}>
-        <td className="data-number">{post_counter}</td>
-        <td className="data-title">{title}</td>
-        <td className="data-writer">{user}</td>
-        <td className="data-create">{time}</td>
-      </tr>
+      <Link to={"/post-view"} state={{ email: my_email, p_title: title, p_writer: user, p_create: time, p_content: content, p_key: key }}>
+        <ul className="data-box">
+          <li className="data-number">{post_counter}</li>
+          <li className="data-title">{title}</li>
+          <li className="data-writer">{user}</li>
+          <li className="data-create">{time}</li>
+        </ul>
+      </Link>
     );
   };
   const SearchUser = async () => {
+
     const user_data: Array<any> = [];
     if (toggleView) {
       const userCollectionRef = collection(firestore, my_email);
       const data = await getDocs(userCollectionRef);
+
       data.forEach((doc: any) => {
-        user_data.push(doc.data());
+        let doc_data: any = doc.data();
+        doc_data.key = doc.id;
+        user_data.push(doc_data);
       });
       setCounter((pops) => (pops += 1));
     } else {
+
       for (let i = 0; i < userList.length; i++) {
         const userCollectionRef = collection(firestore, userList[i]);
         const data = await getDocs(userCollectionRef);
         data.forEach((doc: any) => {
-          user_data.push(doc.data());
+          let doc_data: any = doc.data();
+          doc_data.key = doc.id;
+          user_data.push(doc_data);
         });
         setCounter((pops) => (pops += 1));
       }
     }
     if (user_data.length > 1) {
       PostTimeSort(user_data); // 내림차순 정렬
+      console.log(user_data);
     } else {
       setPostContent(user_data);
     }
@@ -91,24 +94,17 @@ export default function TableBox({
     setPostContent(user_data);
   };
   return (
-    <div className="table-box">
-      <table>
-        <thead>
-          <tr>
-            <th className="t-number">번호</th>
-            <th className="t-title">제목</th>
-            <th className="t-writer">작성자</th>
-            <th className="t-create">작성일</th>
-          </tr>
-        </thead>
-        <tbody>
-          {load
-            ? postContent.map((item) =>
-              Table_Data(item.title, item.user, item.time)
-            )
-            : null}
-        </tbody>
-      </table>
-    </div>
+    <ul className="table-data">
+      {/* {load
+        ? postContent.map((item) =>
+          Table_Data(item.title, item.user, item.time, item.content, item.key)
+        )
+        : null} */}
+      {
+        postContent.map((item) =>
+          Table_Data(item.title, item.user, item.time, item.content, item.key)
+        )
+      }
+    </ul>
   );
 }
