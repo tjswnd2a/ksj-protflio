@@ -64,11 +64,11 @@ export default function LoginPage() {
           {/* </Link> */}
           <div className="find-wrap">
             <ul>
-              <li>
+              {/* <li>
                 <Link to={"/id_find"}>
                   <a href="javascirpt:void(0)">아이디 찾기</a>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={"/pw_find"}>
                   <a href="javascirpt:void(0)">비밀번호 찾기</a>
