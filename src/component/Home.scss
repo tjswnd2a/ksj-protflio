@@ -1,31 +1,44 @@
 .home {
   position: relative;
-  display: flex;
+  // display: flex;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
-
+  // align-items: center;
+  // justify-content: center;
+  
+  .title-logo {
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+    padding-top: 50px;
+  }
   .my-info {
     position: absolute;
+    top: 0;
     left: 0;
     z-index: 9;
     width: 0;
     height: 100vh;
     background-color: #fff;
-    border-right: 1px solid #000;
+    border-right: 1px solid #00a3d2;
     box-sizing: border-box;
     overflow: hidden;
+
     ul {
       width: 400px;
       margin-top: 50px;
+
       li {
         padding: 20px;
         cursor: pointer;
+
         &:hover {
-          background-color: rgba(0, 0, 0, 0.171);
+          background-color: #00a3d2;
+          color: #fff;
         }
       }
     }
+
     .logo {
       margin-top: 20px;
       padding: 20px;
@@ -33,39 +46,48 @@
       width: 160px;
       font-size: 40px;
       font-weight: 900;
+
+      h4 {
+        color: #00a3d2;
+      }
     }
+
     .title {
       margin-top: 50px;
       width: 300px;
       padding-left: 20px;
     }
-    .logout {
-    }
+
+    .logout {}
   }
 
   .inner {
     width: 95%;
-    height: 600px;
+    height: 700px;
+    margin-top: 40px;
     background-color: #fff;
     border-radius: 20px;
+    border: 1px solid #00a3d2;
+    
 
     .menu {
       position: absolute;
       cursor: pointer;
       top: 20px;
       right: 20px;
+
       .material-symbols-outlined {
         font-size: 35px;
         font-weight: 900;
       }
     }
-    
+
     button {
       position: absolute;
       width: 500px;
       height: 30px;
       border-radius: 20px;
-      bottom: -40px;
+      bottom: 45px;
       right: 0;
       left: 0;
       margin: auto;

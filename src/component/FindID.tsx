@@ -7,7 +7,7 @@ export default function FindID() {
       <div className="inner">
         <div className="logo">
           <Link to={'/'} >
-            <h4>SJ-Note</h4>
+            <h4>SSJ.Community</h4>
           </Link>
         </div>
 

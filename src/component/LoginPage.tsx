@@ -38,7 +38,7 @@ export default function LoginPage() {
     <section className="login-page">
       <div className="inner">
         <div className="logo">
-          <h4>SJ-Note</h4>
+          <h4>SJ.Community</h4>
         </div>
         <div className="login">
           <div className="id">

@@ -89,7 +89,7 @@ export default function SignUp() {
       <div className="inner">
         <div className="logo">
           <Link to={"/"}>
-            <h4>SJ-Note</h4>
+            <h4>SJ.Community</h4>
           </Link>
         </div>
         <h4 className="title">이메일</h4>

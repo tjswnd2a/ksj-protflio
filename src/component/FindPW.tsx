@@ -20,7 +20,7 @@ export default function FindPW() {
       <div className="inner">
         <div className="logo">
           <Link to={'/'} >
-            <h4>SJ-Note</h4>
+            <h4>SJ.Community</h4>
           </Link>
         </div>
 

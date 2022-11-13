@@ -67,10 +67,11 @@ export default function Home() {
 
   return (
     <div className="home">
+      <h1 className="title-logo">SJ.Community</h1>
       <div className="my-info">
         <div className="logo">
           <Link to={"/home"}>
-            <h4>SJ-Note</h4>
+            <h4>SJ.Community</h4>
           </Link>
         </div>
         <div className="title">{user.email}님 환영합니다.</div>

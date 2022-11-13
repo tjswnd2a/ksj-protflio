@@ -4,7 +4,8 @@ body {
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   // background-image: url("../public/images/20200703155006481_oen.jfif");
-  background-image: url("../public/images/city-g0ae46a2c6_1920.jpg");
+  // background-image: url("../public/images/city-g0ae46a2c6_1920.jpg");
+  background-color: #00a3d2;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -26,14 +27,15 @@ button {
 }
 .button-classic {
   display: block;
-  border: 1px solid #000;
-  background-color: rgb(27, 26, 26);
+  border: 1px solid #00a3d2;
+  // border: none;
+  background-color: #00a3d2;
   color: white;
   transition: background-color 0.3s;
   font-weight: 900;
   &:hover {
     background-color: white;
-    color: rgb(27, 26, 26);
+    color: #00a3d2;
   }
 }
 
