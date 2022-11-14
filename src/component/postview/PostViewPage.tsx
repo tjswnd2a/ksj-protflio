@@ -19,7 +19,6 @@ export default function PostViewPage() {
     setToggle((prop) => !prop);
   }
   const Btn_Edit_Success = () => {
-    setToggle((prop) => !prop);
     PostUpDate();
   }
   useEffect(() => {
@@ -31,11 +30,14 @@ export default function PostViewPage() {
     const newField = { content: edit_content, title: edit_title };
     if (edit_title === "") {
       alert("제목란이 비어 있습니다.");
+      return;
     }
     if (edit_content === "") {
       alert("내용이 비어져 있습니다");
+      return;
     }
     await updateDoc(userDoc, newField);
+    setToggle((prop) => !prop);
   }
   const Btn_Delete = () => {
     const userCollectionRef = firestore.collection(location.state.email);
