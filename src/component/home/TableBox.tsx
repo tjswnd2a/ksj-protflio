@@ -72,7 +72,11 @@ export default function TableBox({
   }, [toggleView]);
 
   useEffect(() => {
-    setload(true);
+    if (postContent.length > 1) {
+      setload(true);
+    } else {
+      setload(false);
+    }
   }, [postContent]);
   useEffect(() => { }, [counter]);
   const PostTimeSort = (user_data: Array<any>) => {
@@ -95,16 +99,16 @@ export default function TableBox({
   };
   return (
     <ul className="table-data">
-      {/* {load
+      {load
         ? postContent.map((item) =>
           Table_Data(item.title, item.user, item.time, item.content, item.key)
         )
-        : null} */}
-      {
+        : <div className="loading-box">loading...</div>}
+      {/* {
         postContent.map((item) =>
           Table_Data(item.title, item.user, item.time, item.content, item.key)
         )
-      }
+      } */}
     </ul>
   );
 }

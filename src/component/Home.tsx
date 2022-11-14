@@ -112,6 +112,8 @@ export default function Home() {
               toggle={viewToggle}
             />
           ) : null}
+
+          {data_load ? null : <div className="loading-box">loading...</div>}
         </div>
 
         {viewToggle ? null : (
