@@ -32,7 +32,7 @@ export default function TableBox({
         </ul>
       </Link>
     );
-  };
+  }
   const SearchUser = async () => {
 
     const user_data: Array<any> = [];
@@ -59,11 +59,13 @@ export default function TableBox({
         setCounter((pops) => (pops += 1));
       }
     }
-    if (user_data.length >= 1) {
+    if (user_data.length > 1) {
       PostTimeSort(user_data); // 내림차순 정렬
       console.log(user_data);
+      setload(true);
     } else {
       setPostContent(user_data);
+      setload(true);
     }
   };
 
@@ -71,13 +73,13 @@ export default function TableBox({
     SearchUser();
   }, [toggleView]);
 
-  useEffect(() => {
-    if (postContent.length >= 1) {
-      setload(true);
-    } else {
-      setload(false);
-    }
-  }, [postContent]);
+  // useEffect(() => {
+  //   if (postContent.length >= 1) {
+  //     setload(true);
+  //   } else {
+  //     setload(false);
+  //   }
+  // }, [postContent]);
   useEffect(() => { }, [counter]);
   const PostTimeSort = (user_data: Array<any>) => {
     let item1: number = 0;
