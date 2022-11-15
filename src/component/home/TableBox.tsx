@@ -59,7 +59,7 @@ export default function TableBox({
         setCounter((pops) => (pops += 1));
       }
     }
-    if (user_data.length > 1) {
+    if (user_data.length >= 1) {
       PostTimeSort(user_data); // 내림차순 정렬
       console.log(user_data);
     } else {
@@ -72,7 +72,7 @@ export default function TableBox({
   }, [toggleView]);
 
   useEffect(() => {
-    if (postContent.length > 1) {
+    if (postContent.length >= 1) {
       setload(true);
     } else {
       setload(false);
