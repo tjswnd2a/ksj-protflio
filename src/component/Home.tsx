@@ -69,6 +69,9 @@ export default function Home() {
     <div className="home">
       <h1 className="title-logo">SJ.Community</h1>
       <div className="my-info">
+        <div className="close" onClick={onClick}>
+          <span className="material-symbols-outlined">close</span>
+        </div>
         <div className="logo">
           <Link to={"/home"}>
             <h4>SJ.Community</h4>
